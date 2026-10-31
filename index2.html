@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarAqua | Solar Powered Water Purification</title>
+    
+<style>
+    /* 1. Basic settings for the entire website */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+        color: #26382f;
+        background-color: #f7fbf7;
+    }
+
+    /* 2. Navigation bar */
+    header {
+        background-color: white;
+        padding: 18px 6%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    nav > a {
+        color: #167447;
+        font-size: 26px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+    }
+
+    nav ul a {
+        text-decoration: none;
+        color: #26382f;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    nav ul a:hover {
+        color: #16834f;
+    }
+
+    a:focus-visible {
+        outline: 3px solid #e6a23c;
+        outline-offset: 3px;
+    }
+
+    /* 3. Common design for all sections */
+    section {
+        padding: 80px 8%;
+        scroll-margin-top: 80px;
+    }
+
+    section > p:first-child {
+        color: #16834f;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    section h2 {
+        color: #164b32;
+        font-size: 34px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+
+    section p {
+        max-width: 800px;
+        margin-bottom: 18px;
+    }
+
+    /* 4. Home / Hero section */
+    #home {
+        background: linear-gradient(135deg, #e9f7eb, #f8fcf8);
+        min-height: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #home h1 {
+        color: #164b32;
+        font-size: clamp(36px, 5vw, 58px);
+        line-height: 1.15;
+        max-width: 850px;
+        margin-bottom: 18px;
+    }
+
+    #home h2 {
+        font-size: 25px;
+        margin-bottom: 14px;
+    }
+
+    #home img {
+        width: 100%;
+        max-width: 650px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+        margin-top: 25px;
+    }
+
+    /* 5. Links styled like buttons */
+    section a {
+        display: inline-block;
+        background-color: #16834f;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    section a:hover {
+        background-color: #105e38;
+    }
+
+    /* 6. Section background colours */
+    #about,
+    #applications,
+    #components {
+        background-color: white;
+    }
+
+    #how-it-works,
+    #benefits {
+        background-color: #eff8f0;
+    }
+
+    /* 7. Content cards */
+    article {
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+        min-width: 220px;
+        margin: 12px 1%;
+        padding: 25px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(24, 75, 50, 0.08);
+    }
+
+    article h3 {
+        color: #167447;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    article p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Four component cards */
+    #components article {
+        width: 45%;
+    }
+
+    /* 8. Contact section */
+    #contact {
+        text-align: center;
+        background: linear-gradient(135deg, #dff3e4, #f4fbf4);
+    }
+
+    #contact p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 9. Footer */
+    footer {
+        background-color: #123d2a;
+        color: white;
+        text-align: center;
+        padding: 35px 6%;
+    }
+
+    footer h2 {
+        margin-bottom: 10px;
+    }
+
+    footer a {
+        color: #d6f5df;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    footer p {
+        margin-top: 12px;
+    }
+
+    /* 10. Responsive design for mobile screens */
+    @media (max-width: 768px) {
+        header {
+            padding: 15px 5%;
+        }
+
+        nav {
+            flex-direction: column;
+        }
+
+        nav ul {
+            justify-content: center;
+            gap: 12px;
+        }
+
+        section {
+            padding: 55px 6%;
+        }
+
+        section h2 {
+            font-size: 28px;
+        }
+
+        #home h1 {
+            font-size: 38px;
+        }
+
+        article,
+        #components article {
+            width: 100%;
+            min-width: 0;
+            margin: 12px 0;
+        }
+
+        #home img {
+            height: 230px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+    
+    <header>
+        <nav>
+            <a href="#home">SolarAqua</a>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Home Page.. -->
+        <section id="home">
+
+            <p>Clean Technology • Green Future</p>
+
+            <h1>Solar Powered Water Purification System</h1>
+
+            <h2>Clean Water, Powered by the Sun.</h2>
+
+            <p>
+            Discover how solar energy can support water
+            purification and help create a more sustainable future.
+            </p>
+
+            <a href="#how-it-works">Discover How</a>
+
+            <img
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80"
+            alt="Solar panels collecting sunlight"
+            width="400"
+            >
+
+        </section>
+
+        <!-- About section -->
+
+        <section id="about">
+
+            <p>ABOUT OUR PROJECT</p>
+
+            <h2>A Sustainable Approach to Clean Water</h2>
+
+            <p>
+                SolarAqua explores how solar energy can be used
+                to support water purification. By using energy
+                from the sun, these systems can help reduce
+                dependence on conventional electricity.
+            </p>
+            <p>
+                The purification method depends on the water
+                source and the contaminants that need to be removed.
+            </p>
+
+            <a href="#how-it-works">Explore the Process</a>
+
+        </section>
+
+        <!-- How it Works -->
+        <section id="how-it-works">
+            
+            <p>THE PURIFICATION PROCESS</p>
+
+            <h2>How Does Solar Water Purification Work?</h2>
+
+            <p>
+                A solar-powered purification system uses energy
+                from sunlight to operate or support a water
+                treatment process.
+            </p>
+
+            <!-- card 1 -->
+             <article>
+                <h3>01. Solar Energy Collection</h3>
+
+                <p>
+                    Solar panels capture sunlight and convert it
+                    into electrical energy.
+                </p>
+             </article>
+
+             <!-- card 2 -->
+             <article>
+                <h3>02. Water Treatment</h3>
+
+                <p>
+                    The system uses an appropriate treatment
+                    method, such as filtration or solar-powered
+                    distillation, depending on its design.
+                </p>
+             </article>
+
+             <!-- card 3 -->
+             <article>
+                <h3>03. Treated Water Output</h3>
+
+                <p>
+                    Water passes through the selected treatment
+                    process. Its quality should be tested to
+                    confirm that it meets the intended use.
+                </p>
+             </article>
+
+        </section>
+
+        <!-- Benefits -->
+         <section id="benefits">
+            <p>WHY SOLAR POWER</p>
+
+            <h2>Benefits of Solar-Powered Purification</h2>
+
+            <p>
+                Solar energy can support water treatment while
+                helping reduce dependence on conventional
+                electricity.
+            </p>
+
+            <!-- Benefit 1 -->
+             <article>
+                <h3>Renewable Energy</h3>
+                <p>
+                    Sunlight is a renewable energy source that
+                    can help power suitable purification systems.
+                </p>
+             </article>
+
+             <!-- Benefit 2 -->
+             <article>
+                <h3>Reduced Grid Dependence</h3>
+                <p>
+                    Solar-powered systems may operate in locations
+                    where access to electricity is limited.
+                </p>
+             </article>
+
+             <!-- Benefit 3 -->
+             <article>
+                <h3>Environmentally Conscious</h3>
+                <p>
+                    Using solar energy can reduce reliance on
+                    electricity generated from fossil fuels.
+                </p>
+             </article>
+         </section>
+
+        <!-- Application Section -->
+        <section id="applications">
+
+            <p>WHERE CAN IT BE USED?</p>
+
+            <h2>Applications of Solar Water Purification</h2>
+
+            <p>
+                Solar-powered purification may be useful in
+                different settings, depending on the system's
+                capacity and treatment technology.
+            </p>
+
+            <article>
+                <h3>Rural Communities</h3>
+
+                <p>
+                    Supporting water treatment in areas with
+                    limited electricity infrastructure.
+                </p>
+            </article>
+
+            <article>
+                <h3>Remote Locations</h3>
+                <p>
+                    Providing an alternative energy source for
+                    suitable water treatment equipment.
+                </p>
+            </article>
+
+            <article>
+                <h3>Educational Projects</h3>
+                <p>
+                    Demonstrating renewable energy and water
+                    treatment concepts in schools and colleges.
+                </p>
+            </article>
+
+        </section>
+
+        <!-- System Components section -->
+        <section id="components">
+            <p>INSIDE THE SYSTEM</p>
+
+            <h2>Main Components</h2>
+
+            <article>
+                <h3>Solar Panel</h3>
+                <p>
+                    Converts sunlight into electrical energy
+                    to power compatible equipment.
+                </p>
+            </article>
+
+            <article>
+                <h3>Water Pump</h3>
+                <p>
+                    Moves water through the system when a pump
+                    is included in the design.
+                </p>
+            </article>
+
+            <article>
+                <h3>Purification Unit</h3>
+                <p>
+                                   Uses the selected treatment technology,
+                    such as filtration or distillation.
+                </p>
+            </article>
+
+            <article>
+                <h3>Water Storage Tank</h3>
+                <p>
+                    Stores treated water when storage is
+                    included in the system.
+                </p>
+            </article>
+
+        </section>
+
+        <!-- Contact Section -->
+         <section id="contact">
+
+            <p>LET'S BUILD A GREENER FUTURE</p>
+
+            <h2>Interested in Solar Water Purification?</h2>
+
+            <p>
+                 Explore how solar energy and suitable water
+                treatment technologies can work together to
+                support a more sustainable future.
+            </p>
+
+            <a href="mailto:tk2310984@gmail.com">Contact Us</a>
+         </section>
+
+
+    </main>
+
+    <!-- Footer Section -->
+     <footer>
+
+        <h2>SolarAqua</h2>
+
+        <p>
+            Harnessing Solar Energy for a Sustainable
+            Water Future.
+        </p>
+
+        <p>
+            <a href="#home">Home</a> 
+            <a href="#about">About</a> 
+            <a href="#how-it-works">How It Works</a> 
+            <a href="#benefits">Benefits</a> 
+            <a href="#applications">Applications</a> 
+            <a href="#components">Components</a> 
+            <a href="#contact">Contact</a>
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved By Tauseef khan | Dezyne École College
+        </p>
+
+     </footer>
+    
+</body>
+</html>
